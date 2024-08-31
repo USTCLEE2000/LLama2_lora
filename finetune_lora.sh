@@ -4,6 +4,9 @@ PORT="11451"
 if [ ! -d ${output_model} ];then  
     mkdir ${output_model}
 fi
+
+
+
 cp ./finetune.sh ${output_model}
 deepspeed --master_port=$PORT --num_gpus=1  finetune_clm_lora.py \
     --model_name_or_path ../../../llama-2-7b-chat-hf/pytorch_model-00002-of-00002.bin \
